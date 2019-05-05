@@ -4,8 +4,60 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4731429c7f25ab92eaa813447a972209",
+    "content-hash": "e62466111ec01ed9f7e938ff9278ccca",
     "packages": [
+        {
+            "name": "arubacao/friends",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/arubacao/friends.git",
+                "reference": "423a773e622b17655723b7d6c9de4623771d4453"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/arubacao/friends/zipball/423a773e622b17655723b7d6c9de4623771d4453",
+                "reference": "423a773e622b17655723b7d6c9de4623771d4453",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^5.2",
+                "illuminate/support": "^5.2",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "graham-campbell/testbench": "^3.0",
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "^4.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Arubacao\\Friends\\": "src/Friends/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "arubacao",
+                    "email": "arubacao@gmail.com"
+                }
+            ],
+            "description": "Manage Friends in Laravel",
+            "keywords": [
+                "Relationships",
+                "eloquent",
+                "friend-system",
+                "friends",
+                "friendships",
+                "laravel",
+                "lumen"
+            ],
+            "time": "2016-06-20T11:37:34+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
@@ -370,6 +422,64 @@
                 "trusted proxy"
             ],
             "time": "2019-01-10T14:06:47+00:00"
+        },
+        {
+            "name": "hootlex/laravel-friendships",
+            "version": "v1.0.24",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hootlex/laravel-friendships.git",
+                "reference": "0100718545bad757006737c21a7b35dc5c52b443"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hootlex/laravel-friendships/zipball/0100718545bad757006737c21a7b35dc5c52b443",
+                "reference": "0100718545bad757006737c21a7b35dc5c52b443",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "^0.3.2",
+                "doctrine/dbal": "^2.5",
+                "fzaninotto/faker": "~1.4",
+                "laravel/laravel": "5.*",
+                "mockery/mockery": "^0.9.5",
+                "phpunit/phpunit": "5.*"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Hootlex\\Friendships\\FriendshipsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Hootlex\\Friendships\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hootlex",
+                    "email": "hootlex@icloud.com"
+                }
+            ],
+            "description": "This package gives Eloquent models the ability to manage their friendships.",
+            "keywords": [
+                "eloquent",
+                "friend-system",
+                "friends",
+                "friendships",
+                "laravel"
+            ],
+            "time": "2018-07-03T09:16:10+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",

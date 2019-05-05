@@ -27,6 +27,8 @@
                                     <tr>
                                         <td>{{ $user->name }}</td>
                                         <td>
+                                            <!-- <button class="btn btn-success" onclick="sendfriendrequest('{{ $user->id }}');">Add Friend</button> -->
+
                                             <button class="btn btn-primary call" data-id="{{ $user->id }}" onclick="makeacall('{{ $user->id }}')">Make call</button>
                                             <button class="btn btn-primary" onclick="openmessagemodal('{{ $user->id }}');">Text a message</button>
                                         </td>
@@ -52,12 +54,14 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
       </div>
       <div class="modal-body">
-        <p>Some text in the modal.</p>
+        <p>Type your message here</p>
+        <textarea class="form-control" id="msg" ></textarea>
+        <input type="hidden" id="receiver_id" >
       </div>
       <div class="modal-footer">
+        <button type="button" class="btn btn-primary" onclick="sendnow()">Send Now</button>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
@@ -79,10 +83,52 @@
             {
                 console.log(data);
             }
-        })
+        });
     }
     function openmessagemodal(id){
+        $("#msgmodal").modal("toggle");
+        $("#receiver_id").val(id);
+    }
+    function sendnow(){
+        var msg = $("#msg").val().trim();
+        var id = $("#receiver_id").val();
+        if(msg!=""){
+            $.ajax({
+                type: 'get',
+                url: '/sendsms',
+                data: {
+                    "id" : id,
+                    "msg" : msg,
+                },
+                success: function(data)
+                {
+                    if(data)
+                    {
+                        $("#msgmodal").modal("toggle");
+                        alert("Message sent");
+                    }
+                }
+            });
+        }
+        else{
+            alert("Please type a message");
+        }
+    }
+    function sendfriendrequest(id)
+    {
+        $.ajax({
+            type: 'get',
+            url: '/friend/request/'+id,
+                data: {
+                    "id" : id,
+                },
+                success: function(data)
+                {
+                    location.reload();
+                }
 
+        });
+        
     }
 </script>
 @endsection

@@ -32,11 +32,30 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                    @guest
+                        
+                    @else
+
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item"><a href="/askforhelp" class="nav-link">Ask people to help</a></li>
                     </ul>
-
+                    @endguest
                     <!-- Right Side Of Navbar -->
+                    <!-- @if(count(\Auth::user()->getPendingFriendships()))
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <span class="badge">{{ count(\Auth::user()->getPendingFriendships()) }} </span>  Friend Requests <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    @foreach(\Auth::user()->getPendingFriendships()  as $pendingFriends)
+                                        <a class="dropdown-item" href="">{{ $pendingFriends->recipient->name }}</a>
+                                    @endforeach
+                                </div>
+                            </li>
+                        </ul>
+                    @endif -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
